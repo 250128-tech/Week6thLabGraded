@@ -1,33 +1,28 @@
 //
-// First - UglyNumber - 10pts
+// Third - SumofaRange - 10pts
 //
 #include <iostream>
 using namespace std;
 
-bool isUgly( int n ) {
-    bool StateBeauty;
+long long sumRange( int a, int b ) {
+    long long BigSum = 0;
 
-    int increment = 2;
-    while ( true ) {
-        if ( n % increment == 0 ) {
-            n /= increment;
-            if ( increment != 2 && increment != 3 && increment != 5 ) {
-                StateBeauty = 0;
-                break;
-            }
-        }
-        if ( n == 1 ) {
-            StateBeauty = 1;
-            break;
-        }
-        increment++;
+    if ( b > a ) {
+        int cache = b;
+        b = a;
+        a = cache;
     }
 
-    return StateBeauty;
+
+    for( b ; b <= a ; b++ ) {
+        BigSum += b;
+    }
+
+    return BigSum;
 }
 
 int main() {
-    int n; cin >> n;
-    cout << boolalpha << isUgly ( n );
+    int a, b; cin >> a >> b;
+    cout << sumRange( a , b);
     return 0;
 }
