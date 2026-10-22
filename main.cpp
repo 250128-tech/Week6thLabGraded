@@ -1,32 +1,28 @@
 //
-// Second - Product of Digits - 10pts
+// Third - SumofaRange - 10pts
 //
 #include <iostream>
 using namespace std;
 
-int digitProduct( int n ) {
-    int returneeproduct = 1;
+long long sumRange( int a, int b ) {
+    long long BigSum = 0;
 
-    while ( true ) {
-        if ( n != 0 ) {
-
-            returneeproduct = returneeproduct * ( n % 10 );
-            n /= 10;
-
-            if ( n == 0 ) {
-                break;
-            }
-
-        } else {
-            returneeproduct = 0;
-            break;
-        }
+    if ( b > a ) {
+        int cache = b;
+        b = a;
+        a = cache;
     }
-    return returneeproduct;
+
+
+    for( b ; b <= a ; b++ ) {
+        BigSum += b;
+    }
+
+    return BigSum;
 }
 
 int main() {
-    int n; cin >> n;
-    cout << digitProduct( n );
+    int a, b; cin >> a >> b;
+    cout << sumRange( a , b);
     return 0;
 }
