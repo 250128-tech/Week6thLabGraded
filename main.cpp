@@ -1,33 +1,32 @@
 //
-// First - UglyNumber - 10pts
+// Second - Product of Digits - 10pts
 //
 #include <iostream>
 using namespace std;
 
-bool isUgly( int n ) {
-    bool StateBeauty;
+int digitProduct( int n ) {
+    int returneeproduct = 1;
 
-    int increment = 2;
     while ( true ) {
-        if ( n % increment == 0 ) {
-            n /= increment;
-            if ( increment != 2 && increment != 3 && increment != 5 ) {
-                StateBeauty = 0;
+        if ( n != 0 ) {
+
+            returneeproduct = returneeproduct * ( n % 10 );
+            n /= 10;
+
+            if ( n == 0 ) {
                 break;
             }
-        }
-        if ( n == 1 ) {
-            StateBeauty = 1;
+
+        } else {
+            returneeproduct = 0;
             break;
         }
-        increment++;
     }
-
-    return StateBeauty;
+    return returneeproduct;
 }
 
 int main() {
     int n; cin >> n;
-    cout << boolalpha << isUgly ( n );
+    cout << digitProduct( n );
     return 0;
 }
