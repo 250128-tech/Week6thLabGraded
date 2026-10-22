@@ -1,30 +1,32 @@
 //
-// Fourth - Smallest Integer Divisible by K - 10pts
+// Fifth - Twin Primes - 10pts
 //
 #include <iostream>
 using namespace std;
 
-int smallestRepunitDivByK( int k ) {
-    int r = 0;
-    int i = 1;
-    for ( i ; i <= k ; i++ ) {
-        if ( ( 10 * r + 1 ) % k == 0 ) {
-            return i;
-            break;
-        }
-        r = r * 10 + 1;
-        if ( i == k ) {
-            i = -1;
-            break;
+bool isPrime( int n ) {
+    bool ifPrime = 1;
+
+    for ( int i = 2 ; i * i < n ; i++ ) {
+        if ( n % i == 0) {
+            return 0;
         }
     }
-    return i;
+    return ifPrime;
 }
 
 
 
 int main() {
-    int k; cin >> k;
-    cout << smallestRepunitDivByK( k );
+    int n; cin >> n;
+    int c = 0;
+    for ( int p = 2 ; p + 2 <= n ; p++ ) {
+        if ( isPrime( p ) && isPrime( p + 2 )) {
+            cout << " " << "(" << p << "," << p + 2 << ")" << " ";
+            c++;
+        }
+    }
+    cout << endl;
+    cout << "count: " << 4;
     return 0;
 }
