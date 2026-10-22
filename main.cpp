@@ -1,32 +1,28 @@
 //
-// Fifth - Twin Primes - 10pts
+// Sixth - Largest and Smallest - 10pts
 //
 #include <iostream>
 using namespace std;
 
-bool isPrime( int n ) {
-    bool ifPrime = 1;
+int mx2( int a , int b ) {
+    return( a > b ? a : b );
+}
 
-    for ( int i = 2 ; i * i < n ; i++ ) {
-        if ( n % i == 0) {
-            return 0;
-        }
-    }
-    return ifPrime;
+int mn2( int a , int b ) {
+    return( a < b ? a : b );
 }
 
 
-
 int main() {
-    int n; cin >> n;
-    int c = 0;
-    for ( int p = 2 ; p + 2 <= n ; p++ ) {
-        if ( isPrime( p ) && isPrime( p + 2 )) {
-            cout << " " << "(" << p << "," << p + 2 << ")" << " ";
-            c++;
-        }
+    int c; cin >> c;
+    int mn = 1000000000;
+    int mx = -1000000000;
+
+    for ( c ; c > 0 ; c--) {
+        int x; cin >> x;
+        mx = mx2( mx , x);
+        mn = mn2(mn ,x);
     }
-    cout << endl;
-    cout << "count: " << c;
+    cout <<" max=" << mx << " min=" << mn;
     return 0;
 }
