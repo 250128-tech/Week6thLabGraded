@@ -27,6 +27,6 @@ int main() {
         }
     }
     cout << endl;
-    cout << "count: " << 4;
+    cout << "count: " << c;
     return 0;
 }
